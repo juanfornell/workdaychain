@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WorkDayChain - Aplicación de registro de horas</title>
+  </head>
+  <style>
+    input {
+      display: block;
+      margin-bottom: 12px;
+    }
+  </style>
+  <body>
+    <h1>WorkDayChain - Aplicación de registro de horas</h1>
+    <h3>Su dirección es <span class="black"><span id="address"></span>.</span></h3>
+    <br>
+    <label for="workerAddress">Address del empleado:</label><input type="text" id="workerAddress" placeholder="0x..."></input>
+    <label for="workerId">Id del trabajador:</label><input type="text" id="workerId" placeholder="0111"></input>
+    <br><button id="send" onclick="App.addNewWorker()">Añadir empleado</button>
+    <p id="status"></p>
+    <input type="search" class="light-table-filter" data-table="order-table" placeholder="Filter">
+    <table id="container"></table>
+    <p>
+      <strong>Hint:</strong> open the browser developer console to view any
+      errors and warnings.
+    </p>
+    <script src="index.js"></script>
+  </body>
+</html>

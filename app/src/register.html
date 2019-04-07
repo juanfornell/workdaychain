@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WorkDayChain - Aplicación de registro de horas</title>
+  </head>
+  <body>
+    <h1>Registro de empresa</h1>
+    <h3>Su dirección es <span class="black"><span id="address"></span>.</span></h3>
+    <br><label for="companyName">Nombre empresa:</label><input type="text" id="companyName" placeholder="Company name"></input>
+    <br><br><button id="send" onclick="App.createNewCompany()">Crear empresa</button>
+    <br>
+    <p id="status"></p>
+    <p>
+      <strong>Hint:</strong> open the browser developer console to view any
+      errors and warnings.
+    </p>
+    <script src="register.js"></script>
+  </body>
+</html>
