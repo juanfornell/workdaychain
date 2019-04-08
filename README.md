@@ -8,38 +8,37 @@ Para instalar y ejecutar la DApp, hay que seguir los siguientes pasos:
 $ sudo apt install nodejs
 ```
 
-
-1. Instalamos la herramienta Node Package Manager.
+2. Instalamos la herramienta Node Package Manager.
 
 ```
 $ sudo apt install npm
 ```
 
-2. Instalamos Ganache para ejecutar una Blockchain en local.
+3. Instalamos Ganache para ejecutar una Blockchain en local.
 
 ```
 $ sudo npm install -g ganache-cli
 ```
 
-3. Instalamos Truffle para poder compilar y migrar los Smart Contracts.
+4. Instalamos Truffle para poder compilar y migrar los Smart Contracts.
 
 ```
 $ sudo npm install -g truffle
 ```
 
-4. Instalamos Git para poder clonar el repositorio.
+5. Instalamos Git para poder clonar el repositorio.
 
 ```
 $ sudo apt install git
 ```
 
-5. En el directorio en el que queremos tener el proyecto, clonamos el repositorio.
+6. En el directorio en el que queremos tener el proyecto, clonamos el repositorio.
 
 ```
 $ git clone git@github.com:juanfornell/workdaychain.git
 ```
 
-6. Antes de ejecutar la DApp, necesitamos instalar los siguientes paquetes.
+7. Antes de ejecutar la DApp, necesitamos instalar los siguientes paquetes.
 
 ```
 $ npm install webpack
