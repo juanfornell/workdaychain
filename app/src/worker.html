@@ -2,23 +2,31 @@
 <html>
   <head>
     <title>MetaCoin | Truffle Webpack Demo w/ Frontend</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="css/estilos.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Hello Worker</h1>
-    <h1>Crear nuevo registro</h1>
-    <br><label for="date">Fecha:</label><input type="text" id="date" placeholder="DD/MM/AAAA 00:00"></input>
-    <br><label for="category">Categoría:</label><input type="text" id="category" placeholder="Entrada/Salida"></input>
-    <br><label for="observations">Obersvaciones:</label><input type="text" id="observations" placeholder="Datos adicionales"></input>
-    <br><label for="location">Centro de trabajo:</label><input type="text" id="location" placeholder="Lugar de trabajo"></input>
-    <br><br><button id="send" onclick="App.createNewTrack()">Registrar horas</button>
-    <br><br>
-    <p id="status"></p>
-    <input type="search" class="light-table-filter" data-table="order-table" placeholder="Filter">
-    <table id="container"></table>
-    <p>
-      <strong>Hint:</strong> open the browser developer console to view any
-      errors and warnings.
-    </p>
+    <div class="contenido1">
+      <div class="contenido2">
+          <div class="imagenlogo"><img id=logo src="img/logo.png" alt="Logo biblioteca" width="250"></div>
+        
+          <div class="contenido3">
+          <h1>Hello Worker</h1>
+          <h1>Crear nuevo registro</h1>
+          <br><label for="date">Fecha:</label><input type="text" id="date" placeholder="DD/MM/AAAA 00:00"></input>
+          <br><label for="category">Categoría:</label><input type="text" id="category" placeholder="Entrada/Salida"></input>
+          <br><label for="observations">Obersvaciones:</label><input type="text" id="observations" placeholder="Datos adicionales"></input>
+          <br><label for="location">Centro de trabajo:</label><input type="text" id="location" placeholder="Lugar de trabajo"></input>
+          <p class="buttonx"><button id="send" onclick="App.createNewTrack()">Registrar horas</button></p>
+
+          <p id="status"></p>
+          <input type="search" class="light-table-filter" data-table="order-table" placeholder="Filter">
+          <table id="container"></table>
+          <p>
+          <strong>Hint:</strong> open the browser developer console to view any errors and warnings.
+          </p>
+        </div>
+      </div>
     <script src="worker.js"></script>
   </body>
 </html>

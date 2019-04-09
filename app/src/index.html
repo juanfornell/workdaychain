@@ -2,27 +2,30 @@
 <html>
   <head>
     <title>WorkDayChain - Aplicación de registro de horas</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="./css/estilos.css" rel="stylesheet" type="text/css" />
   </head>
-  <style>
-    input {
-      display: block;
-      margin-bottom: 12px;
-    }
-  </style>
   <body>
-    <h1>WorkDayChain - Aplicación de registro de horas</h1>
-    <h3>Su dirección es <span class="black"><span id="address"></span>.</span></h3>
+    <div class="contenido1">
+      <div class="contenido2">
+          <div class="imagenlogo"><img id=logo src="./img/logo.png" alt="Logo biblioteca" width="250"></div>
+        
+          <div class="contenido3"><h3>Su dirección es <span class="black"><span id="address"></span>.</span></h3>
     <br>
-    <label for="workerAddress">Address del empleado:</label><input type="text" id="workerAddress" placeholder="0x..."></input>
-    <label for="workerId">Id del trabajador:</label><input type="text" id="workerId" placeholder="0111"></input>
-    <br><button id="send" onclick="App.addNewWorker()">Añadir empleado</button>
+    <p class="nombre"><label for="workerAddress"></label><input type="text" id="workerAddress" placeholder="ADDRESS DEL EMPLEADO"></input></p>
+    <p class="nombre"><label for="workerId"></label><input type="text" id="workerId" placeholder="ID DEL TRABAJADOR"></input></p>
+    
+    <p class="buttonx"><button id="send" onclick="App.addNewWorker()">AÑADIR EMPLEADO</button></p>
     <p id="status"></p>
-    <input type="search" class="light-table-filter" data-table="order-table" placeholder="Filter">
-    <table id="container"></table>
-    <p>
-      <strong>Hint:</strong> open the browser developer console to view any
-      errors and warnings.
+    <p class="hint"> Hint: Open the browser developer console to view any
+      errors and warnings.</span>
     </p>
+    <br><br>
+    <p table id="container"></table></p>
+    <br><br>
+  </div>
+  </div>
+</div>
     <script src="index.js"></script>
   </body>
 </html>

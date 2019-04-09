@@ -19,6 +19,8 @@ module.exports = {
       { from: "./src/worker.html", to: "worker.html" },
       { from: "./src/register.html", to: "register.html" },
       { from: "./src/notRegistered.html", to: "notRegistered.html" },
+      { from: "./src/css/estilos.css", to: "css/estilos.css" },
+      { from: "./src/img/logo.png", to: "img/logo.png" },
   ]),
   ],
   devServer: { contentBase: path.join(__dirname, "dist"), compress: true },
