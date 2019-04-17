@@ -71,7 +71,6 @@ const App = {
   validate: async function(_account, i) {
     const { validate } = this.company.methods;
     await validate(_account, i).send({ from: account });
-    console.log('validada address: ', _account,' track: ',i)
     this.refreshTable();
   },
 
