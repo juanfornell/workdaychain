@@ -18,7 +18,13 @@ contract CompanyOwned {
     }
 
     function getCompanyAddress () public view returns (address) {
+        
         return companyAddress;
+    }
+
+    function getCompanyName () public view returns (string memory) {
+        
+        return name;
     }
 
     function existsCompany () public view returns (bool) {
