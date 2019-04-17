@@ -104,7 +104,7 @@ const App = {
                       "<td>"+value[1]+"</td>"+
                       "<td>"+value[2]+"</td>"+
                       "<td>"+value[3]+"</td>"+
-                      "<td><input type='checkbox' name='my_check'"+i+" checked="+value[4]+" onchange='App.validate(\""+value_address+"\","+i+")'></td>";
+                      "<td><input type='checkbox' name='my_check'"+i+" checked="+value[4]+" onchange='App.validate(\""+value_address+"\","+i+")' disabled></td>";
                       document.getElementById("container").appendChild(tr);
               } else {
                 tr.innerHTML= "<td>"+value_address+"</td>"+

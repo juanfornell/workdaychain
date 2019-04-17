@@ -1,9 +1,40 @@
 pragma solidity ^0.5.0;
 
-contract Company {
-        
+import "./SafeMath.sol";
+
+contract A {
+
     string name;
     address companyAddress;
+
+    function createCompany (string memory _name) public {
+        
+        name = _name;
+        companyAddress = msg.sender;
+    }
+
+    function getCompanyAddress () public view returns (address) {
+        return companyAddress;
+    }
+
+    function existsCompany () public view returns (bool) {
+
+        if (companyAddress == address(0)) {
+            return false;
+        } 
+        else return true;
+    }
+
+    modifier onlyCompany () {
+    require(msg.sender == companyAddress);
+    _;
+    }
+}
+
+contract Company is A {
+    
+    using SafeMath for uint;
+
     uint numberWorkers;
     mapping(address => Worker) MapWorkers;
     mapping(uint => address) IterateWorkers;
@@ -24,34 +55,15 @@ contract Company {
         string location;
         bool validated;
     }
-    
-    function createCompany (string memory _name) public {
-        
-        name = _name;
-        companyAddress = msg.sender;
-        numberWorkers = 0;
-    }
-
-    function getCompanyAddress () public view returns (address) {
-        return companyAddress;
-    }
-
-    function existsCompany () public view returns (bool) {
-
-        if (companyAddress == address(0)) {
-            return false;
-        } 
-        else return true;
-    }
 
     function isWorker (address _address) public view returns (bool) {
 
         return MapAddressWorkers[_address];
     }
     
-    function addWorker(address _worker, string memory _workerId) public {
+    function addWorker(address _worker, string memory _workerId) public onlyCompany {
         
-        //Comprobar antes que no esté en otra empresa
+        require(isWorker(_worker) != true);
         
         Worker storage newWorker = MapWorkers[_worker];
         
@@ -60,7 +72,7 @@ contract Company {
 
         MapAddressWorkers[_worker] = true;
         IterateWorkers[numberWorkers] = _worker;
-        numberWorkers++;
+        numberWorkers = numberWorkers.add(1);
     }
     
     function addTrack(  
@@ -89,31 +101,6 @@ contract Company {
         return(_date, _category, _observations, _location, _validated);
     }
 
-    function getTrackDate (address _workerAddress, uint _id) public view returns(uint) {
-        
-        return MapWorkers[_workerAddress].tracks[_id].date;
-    }
-
-    function getTrackCategory (address _workerAddress, uint _id) public view returns(string memory) {
-        
-        return MapWorkers[_workerAddress].tracks[_id].category;
-    }
-
-    function getTrackObservations (address _workerAddress, uint _id) public view returns(string memory) {
-        
-        return MapWorkers[_workerAddress].tracks[_id].observations;
-    }
-
-    function getTrackLocation (address _workerAddress, uint _id) public view returns(string memory) {
-        
-        return MapWorkers[_workerAddress].tracks[_id].location;
-    }
-
-    function getTrackValidation (address _workerAddress, uint _id) public view returns(bool) {
-        
-        return MapWorkers[_workerAddress].tracks[_id].validated;
-    }
-
     function getNumberTracks (address _workerAddress) public view returns (uint) {
 
         return MapWorkers[_workerAddress].lenghtTracks;
@@ -134,7 +121,7 @@ contract Company {
         return MapWorkers[_workerAddress].workerId;
     }
     
-    function validate (address _workerAddress, uint _id) public {
+    function validate (address _workerAddress, uint _id) public onlyCompany {
         
         require(companyAddress == msg.sender);
         MapWorkers[_workerAddress].tracks[_id].validated = true;
