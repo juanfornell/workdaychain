@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WorkDayChain - Aplicación de registro de horas</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="css/estilos.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="contenido1">
+      <div class="contenido2">
+          <div class="imagenlogo"><img id=logo src="img/logo.png" alt="Logo biblioteca" width="250"></div>
+        
+          <div class="contenido3">
+          <h1>Crear nuevo registro horario</h1>
+          <br><label for="date">Fecha:</label><input type="datetime-local" id="date" ></input>
+          <br><label for="category">Categoría:</label><select id="category" >
+            <option value="Entrada">Entrada</option> 
+            <option value="Salida" selected>Salida</option>
+          </select>
+          <br><label for="observations">Observaciones:</label><input type="text" id="observations" placeholder="Datos adicionales"></input>
+          <br><label for="location">Centro de trabajo:</label><input type="text" id="location" placeholder="Lugar de trabajo"></input>
+          <p class="buttonx"><button id="send" onclick="App.createNewTrack()">Registrar horas</button></p>
+          <br>
+          <p id="status"></p>
+          <br>
+          <p>
+            <strong>Hint:</strong> open the browser developer console to view any errors and warnings.
+            </p>
+          <br><br>
+          <table id="container"></table>
+          <br><br>
+          
+        </div>
+      </div>
+    <script src="worker.js"></script>
+  </body>
+</html>

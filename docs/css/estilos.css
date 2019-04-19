@@ -1,0 +1,237 @@
+/*Estilos comunes*/
+
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    margin: 0px auto; 
+    font-weight: 100;	
+}
+
+h1,h2,h3,h4 {
+    font-family: 'Open Sans', sans-serif;
+    color: #371191;
+    font-weight: bold;
+   
+
+}
+
+
+table {
+    border: 1px solid rgba(33,34,64,.16);
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0px auto;
+}
+
+th {
+    color:  #ffffff;
+    background-color: #371191;
+    
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid rgba(33,34,64,.16);
+    text-align: left;
+    vertical-align: center;
+}
+
+.imagenlogo {
+    width: 400px;
+    margin: 50px auto;
+    text-align: center;
+    
+}
+
+/*container central*/
+
+.contenido2 {
+    width: 90%;
+    max-width: 960px;
+    margin: 100px auto;
+
+}
+.contenido3 {
+    width: 400px;
+    margin: 25px auto;
+
+}
+.hint{
+    text-align: center;
+    font-size: 10px;
+    margin-top: -30px;
+
+}
+
+
+/*form*/
+.nombre {
+   
+    width: 350px;
+    
+
+}
+
+.buttonx {
+   
+    width: 392px;
+    
+
+}
+
+input[type=text] {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    margin: 7px 0;
+    border: 1px solid rgba(33,34,64,.16);
+    border-radius: 8px;
+    outline: none;
+}
+
+
+button{
+    width: 100%;
+    background-color: #371191;
+    padding: 15px 60px;
+    border: 0;
+    margin: 7px 0;
+    margin-bottom: 40px;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 8px;
+    outline: none;
+
+}
+
+input[type=text]:focus {
+    border: 1px solid grey;
+}
+
+
+
+input[type=datetime-local] {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 12px 20px;
+    margin: 7px 0;
+    box-sizing: border-box;
+    border: 1px solid rgba(33,34,64,.16);
+    border-radius: 8px;
+    outline: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+input[type=date]:focus {
+    border: 1px solid grey;
+}
+
+
+
+
+
+select {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 12px 20px;
+    margin: 7px 0;
+    box-sizing: border-box;
+    border: 1px solid rgba(33,34,64,.16);
+    outline: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+select:focus {
+    border: 1px solid grey;
+}
+
+
+input[type=checkbox] {
+    
+    background-color: #e5dcc8;
+    padding: 0px 0px;
+    margin: 0px 12px 20px 10px;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 550px) {
+
+    /* Elementos comunes */
+
+
+.header2{
+    height:400px;
+
+}
+
+
+#bloquelogoynombre{
+    position: relative;
+    top:-100px;
+}
+
+    #loginybuscador{
+        float:left;
+        clear:right;
+        margin-left: 0px;
+        width:100%;
+        position: relative;
+        top:100px;
+        
+}
+
+.login {
+    float: left;
+    margin-top:18px;
+    margin-left: 0px;
+    border-right: none; 
+    font-size: 16px;
+
+
+}
+
+#buscador {
+    float:left;
+    width:100%;
+    clear: left;
+    padding-top: 6px;    
+}
+
+
+
+}
+.botonsearch{
+    float: right;
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
+#search{
+    width:55%;
+    margin-top:1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    font-size:16px;
+}
+#boton{
+    width:30%;
+    font-size:16px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+
+}
