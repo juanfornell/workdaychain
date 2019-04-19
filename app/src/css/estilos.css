@@ -17,24 +17,26 @@ h1,h2,h3,h4 {
 
 }
 
-table, td, th {  
-    border: 1px solid #ddd;
-    text-align: left;
-  }
-  
+
 table {
+    border: 1px solid rgba(33,34,64,.16);
     border-collapse: collapse;
     width: 100%;
-}
-  
-th, td {
-    padding: 15px;
+    margin: 0px auto;
 }
 
 th {
-    background-color: #371191;;
-    color: white;
-  }
+    color:  #ffffff;
+    background-color: #371191;
+    
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid rgba(33,34,64,.16);
+    text-align: left;
+    vertical-align: center;
+}
 
 .imagenlogo {
     width: 400px;
@@ -83,6 +85,7 @@ input[type=text] {
     width: 100%;
     background-color: #ffffff;
     padding: 12px 20px;
+    box-sizing: border-box;
     margin: 7px 0;
     border: 1px solid rgba(33,34,64,.16);
     border-radius: 8px;
@@ -108,23 +111,18 @@ input[type=text]:focus {
     border: 1px solid grey;
 }
 
-.fechadereserva {
-    float: left;
-    clear: right;
-    width: 45%;
-    margin-top: -5px;
-}
 
 
-input[type=date] {
+input[type=datetime-local] {
     width: 100%;
     background-color: #ffffff;
-    padding: 10px 20px 11px 20px;
+    padding: 12px 20px;
     margin: 7px 0;
     box-sizing: border-box;
-    border: 1px solid #371191;
+    border: 1px solid rgba(33,34,64,.16);
+    border-radius: 8px;
     outline: none;
-    
+    font-family: 'Open Sans', sans-serif;
 }
 
 input[type=date]:focus {
@@ -136,13 +134,14 @@ input[type=date]:focus {
 
 
 select {
+    width: 100%;
     background-color: #ffffff;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 7px 0;
     box-sizing: border-box;
-    border: 1px solid #651a53;
+    border: 1px solid rgba(33,34,64,.16);
     outline: none;
-    
+    font-family: 'Open Sans', sans-serif;
 }
 
 select:focus {
@@ -236,40 +235,3 @@ input[type=checkbox] {
     padding-bottom: 11px;
 
 }
-
-
-
-
-
-
-
-/* Larger than phablet */
-@media (min-width: 550px) {
-    .burgermenu{
-        display:none;
-      }
-}
-
-/* Larger than tablet */
-@media (min-width: 750px) {
-    .burgermenu{
-        display:none;
-      }
-}
-
-/* Larger than desktop */
-@media (min-width: 1000px) {
-    .burgermenu{
-        display:none;
-      }
-}
-
-/* Larger than Desktop HD */
-@media (min-width: 1200px) {
-    .burgermenu{
-        display:none;
-      }
-}
-
-
-

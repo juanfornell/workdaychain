@@ -57,7 +57,13 @@ module.exports = {
       // from: <address>,        // Account to send txs from (default: accounts[0])
       // websockets: true        // Enable EventEmitter interface for web3 (default: false)
     // },
-
+    rinkeby: {
+      host: "localhost", // Connect to geth on the specified
+      port: 8545,
+      from: "0x41e16be3a6d452c4f43f23c8e2b749f285a53978", // default address to use for any transaction Truffle makes during migrations
+      network_id: 4,
+      gas: 4700000 // Gas limit used for deploys
+    }
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
     // ropsten: {

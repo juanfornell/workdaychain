@@ -110,15 +110,17 @@ contract Company is CompanyOwned {
         string memory,
         string memory,
         string memory,
-        bool) {
+        bool,
+        string memory) {
         
         string memory _date = MapWorkers[_workerAddress].tracks[_id].date;
         string memory _category = MapWorkers[_workerAddress].tracks[_id].category;
         string memory _observations = MapWorkers[_workerAddress].tracks[_id].observations;
         string memory _location = MapWorkers[_workerAddress].tracks[_id].location;
         bool _validated = MapWorkers[_workerAddress].tracks[_id].validated;
+        string memory _workerId = MapWorkers[_workerAddress].workerId;
         
-        return(_date, _category, _observations, _location, _validated);
+        return(_date, _category, _observations, _location, _validated, _workerId);
     }
 
     function getNumberTracks (address _workerAddress) public view returns (uint) {

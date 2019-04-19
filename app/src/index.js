@@ -1,5 +1,4 @@
 import Web3 from "web3";
-import metaCoinArtifact from "../../build/contracts/MetaCoin.json";
 import companyArtifact from "../../build/contracts/Company.json";
 
 let accounts;
@@ -7,7 +6,6 @@ let account;
 
 const App = {
   web3: null,
-  meta: null,
   company: null,
 
   start: async function() {
@@ -16,12 +14,7 @@ const App = {
     try {
       // get contract instance
       const networkId = await web3.eth.net.getId();
-      const deployedNetwork = metaCoinArtifact.networks[networkId];
       const deployedCompany = companyArtifact.networks[networkId];
-      this.meta = new web3.eth.Contract(
-        metaCoinArtifact.abi,
-        deployedNetwork.address,
-      );
       this.company = new web3.eth.Contract(
         companyArtifact.abi,
         deployedCompany.address,
@@ -62,6 +55,12 @@ const App = {
     return n;
   },
 
+  _getWorkerId: async function(_address) {
+    const { getWorkerId } = this.company.methods;
+    const n = await getWorkerId(_address).call();
+    return n;
+  },
+
   _getNumberWorkers: async function() {
     const { getNumberWorkers } = this.company.methods;
     const n = await getNumberWorkers().call();
@@ -97,7 +96,7 @@ const App = {
           this._getTrack(value_address,i).then(value => {
           var tr = document.createElement('tr');
               if(value[4] == true) {
-              tr.innerHTML= "<td>"+value_address+"</td>"+
+              tr.innerHTML= "<td>"+value[5]+"</td>"+
                       "<td>" + i + "</td>" +
                       "<td>"+value[0]+"</td>"+
                       "<td>"+value[1]+"</td>"+
@@ -105,8 +104,9 @@ const App = {
                       "<td>"+value[3]+"</td>"+
                       "<td><input type='checkbox' name='my_check'"+i+" checked="+value[4]+" onchange='App.validate(\""+value_address+"\","+i+")' disabled></td>";
                       document.getElementById("container").appendChild(tr);
+                      
               } else {
-                tr.innerHTML= "<td>"+value_address+"</td>"+
+                tr.innerHTML= "<td>"+value[5]+"</td>"+
                       "<td>" + i + "</td>" +
                       "<td>"+value[0]+"</td>"+
                       "<td>"+value[1]+"</td>"+
@@ -116,12 +116,13 @@ const App = {
                       document.getElementById("container").appendChild(tr);
               }
         });
-        html += "</tr></table>";
+        
       }
     });
       
       });
     }
+    html += "</tr></table>";
     document.getElementById("container").innerHTML = html;
     });
   },
@@ -150,14 +151,6 @@ const App = {
     }
   },
 
-  refreshBalance: async function() {
-    const { getDummy } = this.company.methods;
-    const balance = await getDummy().call();
-
-    const balanceElement = document.getElementsByClassName("balance")[0];
-    balanceElement.innerHTML = balance;
-  },
-
   addNewWorker: async function() {
     const workerAddress = document.getElementById('workerAddress').value;
     const workerId = document.getElementById('workerId').value;
@@ -165,19 +158,6 @@ const App = {
     const { addWorker } = this.company.methods;
     await addWorker(workerAddress, workerId).send({ from: account });
     this.setStatus("Transaction complete!");
-  },
-
-  sendCoin: async function() {
-    const amount = parseInt(document.getElementById("amount").value);
-    const receiver = document.getElementById("receiver").value;
-
-    this.setStatus("Initiating transaction... (please wait)");
-
-    const { sendCoin } = this.meta.methods;
-    await sendCoin(receiver, amount).send({ from: this.account });
-
-    this.setStatus("Transaction complete!");
-    this.refreshBalance();
   },
 
   setStatus: function(message) {

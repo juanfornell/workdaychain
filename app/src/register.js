@@ -1,5 +1,4 @@
 import Web3 from "web3";
-import metaCoinArtifact from "../../build/contracts/MetaCoin.json";
 import companyArtifact from "../../build/contracts/Company.json";
 
 let accounts;
@@ -16,12 +15,7 @@ const App = {
     try {
       // get contract instance
       const networkId = await web3.eth.net.getId();
-      const deployedNetwork = metaCoinArtifact.networks[networkId];
       const deployedCompany = companyArtifact.networks[networkId];
-      this.meta = new web3.eth.Contract(
-        metaCoinArtifact.abi,
-        deployedNetwork.address,
-      );
       this.company = new web3.eth.Contract(
         companyArtifact.abi,
         deployedCompany.address,
